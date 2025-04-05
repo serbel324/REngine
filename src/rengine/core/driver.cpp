@@ -11,13 +11,14 @@ namespace REngine {
 Driver::Driver(Frame::UPtr&& frame, Settings settings)
     : _frame(std::forward<Frame::UPtr>(frame))
     , _settings(settings) {
-    RunFrame();
 }
 
 void Driver::RunFrame() {
     using SystemClock = std::chrono::system_clock;
     using Timestamp = std::chrono::time_point<SystemClock>;
     Timestamp start_time = SystemClock::now();
+
+    _frame->Initialize();
 
     while (true) {
         Timestamp current_time = SystemClock::now();

@@ -4,8 +4,10 @@
 
 namespace REngine {
 
-inline std::shared_ptr<sf::RenderWindow> MakeGenericWindow(Vec2<uint32_t> dimensions, std::string name = "App") {
-    return std::make_shared<sf::RenderWindow>(sf::VideoMode(dimensions.x, dimensions.y), name, sf::Style::Close);
+inline std::shared_ptr<sf::RenderWindow> MakeGenericWindow(Vec2ui32 dimensions,
+                                                           std::string name = "App") {
+    return std::make_shared<sf::RenderWindow>(sf::VideoMode(dimensions.x, dimensions.y), 
+                                              name, sf::Style::Close);
 }
 
 SFMLFrame::SFMLFrame(Frame::Settings settings)

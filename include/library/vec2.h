@@ -77,7 +77,8 @@ struct Vec2
 };
 
 using Vec2i = Vec2<int>;
-using Vec2u = Vec2<uint32_t>;
+using Vec2ui32 = Vec2<uint32_t>;
+using Vec2ui64 = Vec2<uint64_t>;
 using Vec2f = Vec2<float>;
 using Vec2d = Vec2<double>;
 
@@ -299,7 +300,9 @@ template<typename T, typename F>
 template<typename T1>
 Vec2<T, F>& Vec2<T, F>::operator/=(T1 r)
 {
-    return *this *= 1 / r;
+    x /= r;
+    y /= r;
+    return *this;
 }
 
 template<typename T, typename F>

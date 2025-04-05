@@ -13,7 +13,7 @@ namespace REngine {
 class Frame : public SmartPointerAliases<Frame> {
 public:
     struct Settings {
-        Vec2<uint32_t> screen_size = Vec2<uint32_t>{1600, 900};
+        Vec2ui32 screen_size = Vec2ui32{1600, 900};
         std::string window_name = "Frame";
     };
 

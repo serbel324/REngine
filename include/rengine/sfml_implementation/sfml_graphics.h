@@ -31,11 +31,14 @@ public:
 
     void Present() override;
 
+    void DrawTexture(const sf::Texture& texture, Vec2f position, Vec2f size);
+    void DrawTexture(const sf::Texture& texture, float x, float y, float w, float h);
+
 private:
     void ApplyViewport();
 
     std::shared_ptr<sf::RenderWindow> _render_window;
-    Vec2<uint32_t> _screen_dimensions;
+    Vec2ui32 _screen_dimensions;
     Camera::SPtr _camera;
 };
 

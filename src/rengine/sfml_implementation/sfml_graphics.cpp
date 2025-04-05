@@ -98,4 +98,18 @@ void SFMLGraphics::Present() {
     _render_window->display();
 }
 
+void SFMLGraphics::DrawTexture(const sf::Texture& texture, Vec2f position, Vec2f size) {
+    DrawTexture(texture, position.x, position.y, size.x, size.y);
+}
+
+void SFMLGraphics::DrawTexture(const sf::Texture& texture, float x, float y, float w, float h) {
+    sf::Sprite sprite;
+    sprite.setTexture(texture);
+    sprite.setPosition(x - w / 2, y - h / 2);
+
+    sf::Vector2u s = texture.getSize();
+    sprite.setScale(w / s.x, h / s.y);
+    _render_window->draw(sprite);
+}
+
 } // namespace REngine

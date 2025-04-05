@@ -7,8 +7,7 @@ set(INCPATH
 project(App)
 
 set(SOURCES
-    main.cpp
-    perlin_noise.cpp)
+    main.cpp)
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 

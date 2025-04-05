@@ -80,10 +80,9 @@ void SFMLGraphics::UpdateCameraView() {
     Vec2f camera_scale = _camera ? _camera->GetScale() : Vec2f{1, 1};
     float camera_angle = _camera ? ExtMath::ToDegrees(_camera->GetAngleRad()) : 0;
 
-    Vec2<float> p = camera_position - _screen_dimensions / 2;
-    Vec2<float> s = _screen_dimensions * camera_scale;
+    Vec2f s = _screen_dimensions * camera_scale;
 
-    view.reset(sf::FloatRect(p.x, p.y, s.x, s.y));
+    view.reset(sf::FloatRect(camera_position.x, camera_position.y, s.x, s.y));
     view.rotate(camera_angle);
     view.setViewport(sf::FloatRect(0.f, 0.f, 1.f, 1.f));
 
